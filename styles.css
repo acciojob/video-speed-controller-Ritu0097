@@ -1,2 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-/* Your CSS Code here. */
+.speed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.speed-bar {
+  width: 30px;
+  height: 100px;
+  background: linear-gradient(to top, #0d0d0d 0%, #d3d3d3 100%);
+  border-radius: 10px;
+  transition: height 0.1s;
+  transform-origin: bottom;
+  margin-bottom: 20px;
+}
+
+video {
+  margin-bottom: 20px;
+}
