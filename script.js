@@ -32,3 +32,8 @@ function forwardOrBackward(event) {
 function handleUpdate() {
   video[this.name] = this.value;
 }
+const video = document.querySelector('.flex');
+
+video.addEventListener('loadedmetadata', function() {
+    expect(video.duration).to.be.closeTo(60.08, 0.1); 
+});
