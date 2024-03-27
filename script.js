@@ -1,38 +1,18 @@
-const inputs = document.querySelectorAll('.player__slider');
-const player = document.querySelector(".player");
-const video = player.querySelector(".viewer");
-const progress = player.querySelector(".progress");
-const progressBar = player.querySelector(".progress__filled");
-const toggle = player.querySelector(".toggle");
-const skipButtons = player.querySelectorAll("[data-skip]");
+const video = document.querySelector('.flex');
 
-toggle.addEventListener("click", togglePlay);
 
-inputs.forEach(input => input.addEventListener('change', handleUpdate));
-inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
-video.addEventListener("timeupdate", handleProgress);
+    function handleUpdate() {
+      const suffix = this.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
 
-skipButtons.forEach(skipButton => skipButton.addEventListener("click", forwardOrBackward));
-
-function togglePlay() {
-  const method = video.paused ? 'play' : 'pause';
-  video[method]();
-}
-
-function handleProgress() {
-  const currentProgress = (video.currentTime / video.duration) * 100;
-  progressBar.style.flexBasis = `${currentProgress}%`;
-}
-
-function forwardOrBackward(event) {
-  const skipAmount = parseFloat(event.target.dataset.skip);
-  video.currentTime += skipAmount;
-}
-
-function handleUpdate() {
-  video[this.name] = this.value;
-}
-
-video.addEventListener('loadedmetadata', function() {
-    expect(video.duration).to.be.closeTo(60.08, 0.1); 
-});
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+const bac10 = document.getElementById("back10");
+bac10.addEventListener("click",()=>{
+	video.currentTime -= 10s;
+})
+const for25 = document.getElementById("forward25");
+for25.addEventListener("click", ()=>{
+	video.currentTime += 25s;
+})
